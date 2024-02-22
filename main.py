@@ -11,7 +11,7 @@ SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Устанавливаем заголовок окна
-pygame.display.set_caption("Моя первая игра")
+pygame.display.set_caption("Памятник")
 
 # Создаем шрифт для текста
 font = pygame.font.SysFont("Arial", 32)
@@ -22,7 +22,7 @@ button_height = 50
 button_x = SCREEN_WIDTH // 2 - button_width // 2
 button_y = SCREEN_HEIGHT // 2 - button_height // 2
 button_color = (0, 255, 0)
-button_text = "Далее"
+button_text = "Играть"
 
 # Основной цикл игры
 while True:
@@ -39,12 +39,14 @@ while True:
             if button_x <= mouse_x <= button_x + button_width and button_y <= mouse_y <= button_y + button_height:
                 # Если пользователь попал в кнопку, переходим на следующий уровень
                 print("Переход на следующий уровень")
+                pygame.quit()
+                sys.exit()
 
     # Заполняем экран белым цветом
     screen.fill((255, 255, 255))
 
     # Отрисовываем приветствие
-    welcome_text = font.render("Добро пожаловать в игру!", True, (0, 0, 0))
+    welcome_text = font.render("Добро пожаловать в игру Памятник!", True, (0, 0, 0))
     screen.blit(welcome_text, (SCREEN_WIDTH // 2 - welcome_text.get_width() // 2, 100))
 
     # Отрисовываем кнопку "Далее"
@@ -54,7 +56,3 @@ while True:
 
     # Обновляем экран
     pygame.display.update()
-
-# Выходим из игры
-pygame.quit()
-sys.exit()
